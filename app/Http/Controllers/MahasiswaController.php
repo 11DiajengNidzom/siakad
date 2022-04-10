@@ -27,6 +27,9 @@
                     'Nama' => 'required',
                     'Kelas' => 'required',
                     'Jurusan' => 'required',
+                    'Email' => 'required',
+                    'Alamat' => 'required',
+                    'TTL' => 'required',
                 ]);
                 //fungsi eloquent untuk menambah data
                 Mahasiswa::create($request->all());
@@ -41,7 +44,7 @@
                 }
                 public function edit($Nim){
                     //menampilkan detail data dengan menemukan berdasarkan Nim Mahasiswa untuk diedit
-                    $Mahasiswa = DB::table('mahasiswa')->where('nim', $nim)->first();;
+                    $Mahasiswa = DB::table('mahasiswa')->where('nim', $Nim)->first();;
                     return view('mahasiswa.edit', compact('Mahasiswa'));
                 }
                 public function update(Request $request, $Nim)
@@ -52,6 +55,10 @@
                 'Nama' => 'required',
                 'Kelas' => 'required',
                 'Jurusan' => 'required',
+                'Jurusan' => 'required',
+                'Email' => 'required',
+                'Alamat' => 'required',
+                'TTL' => 'required',
             ]);
         //fungsi eloquent untuk mengupdate data inputan kita
         Mahasiswa::find($Nim)->update($request->all());
