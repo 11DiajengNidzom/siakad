@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\MataKuliah;
 use Illuminate\Http\Request;
 use App\Models\Mahasiswa;
 use Illuminate\Support\Facades\DB;
@@ -190,11 +190,10 @@ class MahasiswaController extends Controller
     
     public function nilai($Nim)
     {
-        // Join relasi ke mahasiswa dan mata kuliah
-        $daftar = Mahasiswa_MataKuliah::where("mahasiswa_id", $Nim)->get();
-        $daftar->mahasiswa = Mahasiswa::with('kelas')->where("nim", $Nim)->first();
-
-        // Menampilkan nilai
-        return view('mahasiswa.nilai', compact('daftar'));
+        $mahasiswa = Mahasiswa::with('kelas')->where('nim', $Nim)->first();
+        $kelas = Kelas::all();
+        $matakuliah = MataKuliah::all();
+        $mahasiswa_matakuliah = Mahasiswa_MataKuliah::all();
+        return view('mahasiswa.nilai', compact('mahasiswa', 'kelas', 'matakuliah', 'mahasiswa_matakuliah'));
     }
 }
