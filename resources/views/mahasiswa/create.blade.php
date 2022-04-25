@@ -33,6 +33,14 @@
                         <input type="Kelas" name="Kelas" class="form-control" id="Kelas" ariadescribedby="password" >
                     </div>
                     <div class="form-group">
+                        <label for="Kelas">Kelas</label>
+                        <select class="form-control" name="kelas">
+                            @foreach($kelas as $kls)
+                            <option value="{{ $kls ->id }}">{{$kls->nama_kelas}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="form-group">
                         <label for="Jurusan">Jurusan</label>
                         <input type="Jurusan" name="Jurusan" class="form-control" id="Jurusan" ariadescribedby="Jurusan" >
                     </div>
@@ -45,8 +53,8 @@
                         <input type="Alamat" name="Alamat" class="form-control" id="Alamat" ariadescribedby="Alamat" >
                     </div>
                     <div class="form-group">
-                        <label for="TTL">TTL</label>
-                        <input type="TTL" name="TTL" class="form-control" id="TTL" ariadescribedby="TTL" >
+                        <label for="Ttl">Ttl</label>
+                        <input type="Ttl" name="Ttl" class="form-control" id="Ttl" ariadescribedby="Ttl" >
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form>

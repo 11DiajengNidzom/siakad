@@ -31,7 +31,11 @@
                     </div>
                     <div class="form-group">
                         <label for="Kelas">Kelas</label>
-                        <input type="Kelas" name="Kelas" class="form-control" id="Kelas" value="{{ $Mahasiswa->kelas }}" aria-describedby="Kelas" >
+                        <select name="Kelas" id="Kelas" class="form-control">
+                            @foreach ($kelas as $kls)
+                                <option value="{{$kls->id}}" {{ $Mahasiswa->kelas_id == $kls->id ? 'selected' : '' }}>{{$kls->nama_kelas}}</option>
+                            @endforeach
+                        </select>
                     </div>
                     <div class="form-group">
                         <label for="Jurusan">Jurusan</label>
@@ -46,8 +50,8 @@
                         <input type="Alamat" name="Alamat" class="form-control" id="Alamat" value="{{ $Mahasiswa->alamat }}" aria-describedby="Alamat" >
                     </div>
                     <div class="form-group">
-                        <label for="TTL">TTL</label>
-                        <input type="TTL" name="TTL" class="form-control" id="TTL" value="{{ $Mahasiswa->ttl }}" aria-describedby="TTL" >
+                        <label for="Ttl">TTL</label>
+                        <input type="Ttl" name="Ttl" class="form-control" id="Ttl" value="{{ $Mahasiswa->ttl }}" aria-describedby="Ttl" >
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
